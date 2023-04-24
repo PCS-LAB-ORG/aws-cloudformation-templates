@@ -20,6 +20,9 @@ Resources:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
+      Tags:
+        - Key: yor_trace
+          Value: a1005ce2-b8d9-44e7-86e4-cf2e9ff2d316
   S3BUCKETPOL:
     Type: 'AWS::S3::BucketPolicy'
     Properties:

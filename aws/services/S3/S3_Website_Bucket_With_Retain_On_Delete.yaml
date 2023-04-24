@@ -14,6 +14,9 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+      Tags:
+        - Key: yor_trace
+          Value: 88b25684-a2d6-4231-9b8d-42e485e3f333
     DeletionPolicy: Retain
 Outputs:
   WebsiteURL:
