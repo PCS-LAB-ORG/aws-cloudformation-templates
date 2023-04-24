@@ -177,6 +177,9 @@ Resources:
         VPCFlowLogsMaxAggregationInterval: !Ref VPCFlowLogsMaxAggregationInterval
         VPCFlowLogsTrafficType: !Ref VPCFlowLogsTrafficType
         VPCID: !Ref VPCID
+      Tags:
+        - Key: yor_trace
+          Value: 43cdaa09-6f32-4b60-8d88-9fcd2c71d508
   VPCFlowLogsS3Stack:
     Condition: VPCFlowLogsToS3Condition
     Type: AWS::CloudFormation::Stack
@@ -191,3 +194,6 @@ Resources:
         VPCFlowLogsMaxAggregationInterval: !Ref VPCFlowLogsMaxAggregationInterval
         VPCFlowLogsTrafficType: !Ref VPCFlowLogsTrafficType
         VPCID: !Ref VPCID
+      Tags:
+        - Key: yor_trace
+          Value: 22724b27-bed6-4dab-a008-8c2c3dfd1132

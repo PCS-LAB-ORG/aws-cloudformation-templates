@@ -35,6 +35,8 @@ Resources:
       Tags:
         - Key: StackName
           Value: !Ref AWS::StackName
+        - Key: yor_trace
+          Value: 5fa0565f-8d35-4796-8a50-89ffa98c3ffb
       Policies:
         - PolicyName: AcceptVPCPeering
           PolicyDocument:

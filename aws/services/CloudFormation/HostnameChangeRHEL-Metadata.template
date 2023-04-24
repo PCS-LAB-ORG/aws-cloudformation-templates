@@ -91,6 +91,12 @@
         "MyInstance" : {
             "Type" : "AWS::EC2::Instance",
             "Metadata" : {
+                "Tags": [
+                  {
+                    "Key": "yor_trace",
+                    "Value": "3efaea9e-7f38-4279-9021-89c993dfc9c7"
+                  }
+                ],
                 "AWS::CloudFormation::Init" : {
                     "configSets" : {
                         "mkscriptrunclean" : [

@@ -71,3 +71,5 @@ Resources:
                  InputString: !Ref InputString
                  Operation: MaxLength
                  Length: 4
+        - Key: yor_trace
+          Value: be25f06f-63bf-4e65-96f4-0cc74187c2aa
