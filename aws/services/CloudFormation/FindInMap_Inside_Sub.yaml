@@ -48,6 +48,9 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: FindInMap-Inside-Sub-Example
+      Tags:
+        - Key: yor_trace
+          Value: 284a3198-cbfc-48b4-827e-03eff461f899
   EC2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
@@ -90,6 +93,9 @@ Resources:
               LocalFindInMapVarWebserver:   !FindInMap [ EnvMap,                !Ref EnvNameParam,         WebServer ],
               LocalIfVar:                   !If        [ ExampleConditionIfDev, 'This box is development', 'This box is testing' ]
               }
+      Tags:
+        - Key: yor_trace
+          Value: 58accc27-5dc8-4111-801c-8815d17b0344
 Outputs:
   CLIcommand:
     Description: CLI command to view the user data on Mac/Linux.

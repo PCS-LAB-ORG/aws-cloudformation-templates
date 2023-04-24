@@ -15,6 +15,12 @@
             "S3BucketForArtifacts" : {
                 "Type" : "AWS::S3::Bucket",
                 "Properties" : {
+                  "Tags": [
+                    {
+                      "Key": "yor_trace",
+                      "Value": "bd2d1042-0ebd-481b-97fa-9047d7c7dccf"
+                    }
+                  ],
                   "AccessControl" : "Private"
                 }
             },
@@ -22,6 +28,12 @@
             "CodeRepository" : {
                 "Type" : "AWS::CodeCommit::Repository",
                 "Properties" : {
+                    "Tags": [
+                      {
+                        "Key": "yor_trace",
+                        "Value": "e5163948-92ba-436d-ac02-5695050a69d6"
+                      }
+                    ],
                     "RepositoryName" : { "Fn::Sub": [ "${Stack}-Repo", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                     "RepositoryDescription" : "Repository for S3 Static Web Site"
                 }
@@ -30,6 +42,12 @@
             "BuildRole" : {
                 "Type": "AWS::IAM::Role",
                 "Properties": {
+                    "Tags": [
+                      {
+                        "Key": "yor_trace",
+                        "Value": "5ceba1ba-c914-4387-83d1-cfde22e7dbd8"
+                      }
+                    ],
                     "RoleName": { "Fn::Sub": [ "${Stack}-CodeBuildExecRole", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                     "AssumeRolePolicyDocument": {
                         "Version": "2012-10-17",
@@ -86,6 +104,12 @@
             "CodeBuild" : {
                 "Type" : "AWS::CodeBuild::Project",
                 "Properties" : {
+                    "Tags": [
+                      {
+                        "Key": "yor_trace",
+                        "Value": "11c8bbc1-6171-444c-9743-fe484cef0742"
+                      }
+                    ],
                     "Artifacts" : {
                             "Type": "CODEPIPELINE",
                             "Name": { "Fn::Sub": [ "${Stack}-Build", { "Stack": {"Ref" : "AWS::StackName" }} ]},
@@ -114,6 +138,12 @@
             "PipelineRole": {
                "Type": "AWS::IAM::Role",
                "Properties": {
+                    "Tags": [
+                      {
+                        "Key": "yor_trace",
+                        "Value": "f5d5e63f-12bf-492e-ac2e-5f1f008c14a4"
+                      }
+                    ],
                     "RoleName": { "Fn::Sub": [ "${Stack}-CodePipeLineExecRole", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                     "AssumeRolePolicyDocument": {
                         "Version": "2012-10-17",
@@ -170,6 +200,12 @@
             "CodePipeline" : {
                 "Type" : "AWS::CodePipeline::Pipeline",
                 "Properties" : {
+                  "Tags": [
+                    {
+                      "Key": "yor_trace",
+                      "Value": "3956f1d4-7df1-4ea4-b253-a48f1e0d91b9"
+                    }
+                  ],
                   "ArtifactStore" : {
                     "Location" : {"Ref": "S3BucketForArtifacts"},
                     "Type" : "S3"
@@ -213,6 +249,12 @@
     
                 "Type": "AWS::IAM::Role",
                 "Properties": {
+                     "Tags": [
+                       {
+                         "Key": "yor_trace",
+                         "Value": "dd55faba-ba38-42a8-82de-5c8ac2289adb"
+                       }
+                     ],
                      "RoleName": { "Fn::Sub": [ "${Stack}-CloudWatchEventRole", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                      "AssumeRolePolicyDocument": {
                          "Version": "2012-10-17",

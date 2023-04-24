@@ -34,6 +34,9 @@ Resources:
             AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
           Action: kms:*
           Resource: '*'
+      Tags:
+        - Key: yor_trace
+          Value: 8e9616f2-22f4-4215-a4e9-de48e985947d
 
   # Create a KMS Key alias.
   KmsKeyAlias:
@@ -81,6 +84,9 @@ Resources:
             SourceSelectionCriteria:
               SseKmsEncryptedObjects: # Specifies whether S3 replicates objects created with server-side encryption using an AWS KMS key.
                 Status: Enabled
+      Tags:
+        - Key: yor_trace
+          Value: c86b8a78-e08b-4e1f-a646-9c7b3bdafb25
   
   # Create the IAM Role used by the S3 bucket replication.
   ReplicationRole:
@@ -136,3 +142,6 @@ Resources:
                 Condition:
                   StringEquals:
                     kms:RequestAlias: !Sub alias/${AWS::StackName}-${AccountIdDestination}-kms-key
+      Tags:
+        - Key: yor_trace
+          Value: 266afeaf-801f-4fdc-8035-37ba1e1d39cf
