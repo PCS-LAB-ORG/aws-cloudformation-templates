@@ -56,6 +56,9 @@ Resources:
       RoleName: !Sub "S3-Endpoint-Policy-Updater-${AWS::StackName}"
       Path:
         Fn::Sub: /
+      Tags:
+        - Key: yor_trace
+          Value: ee95ae8f-024e-4efd-ad31-1dcb4af51a29
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -70,6 +73,9 @@ Resources:
         Fn::GetAtt: LambdaRole.Arn
       Runtime: python2.7
       Timeout: 60
+      Tags:
+        - Key: yor_trace
+          Value: 997c17dd-80d6-4d0f-9039-4cb80b6bad43
 Outputs:
   LambdaFunctionARN:
     Description: The ARN of the lambda function
