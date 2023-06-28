@@ -54,6 +54,9 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
         - arn:aws:iam::aws:policy/AmazonKinesisFullAccess
       Path: /
+      Tags:
+        - Key: yor_trace
+          Value: 1260c54e-729e-469a-b12a-d0cf2a7b816f
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -77,3 +80,6 @@ Resources:
           ENV:
             Fn::Sub: ${EnvName}
           TZ: UTC
+      Tags:
+        - Key: yor_trace
+          Value: ed15128b-8f72-4d27-a45c-986b2fa92f51

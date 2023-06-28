@@ -12,12 +12,24 @@
     "EIP1": {
       "Type": "AWS::EC2::EIP",
       "Properties": {
+        "Tags": [
+          {
+            "Key": "yor_trace",
+            "Value": "2f863227-5371-4b4f-b0d0-287c00185a55"
+          }
+        ],
         "Domain": "VPC"
       }
     },
     "EIP2": {
       "Type": "AWS::EC2::EIP",
       "Properties": {
+        "Tags": [
+          {
+            "Key": "yor_trace",
+            "Value": "64aa716e-ef72-49bd-968c-e477ce7b3484"
+          }
+        ],
         "Domain": "VPC"
       }
     },
@@ -45,6 +57,12 @@
 {
    "Type" : "AWS::EC2::NetworkInterface",
    "Properties" : {
+      "Tags": [
+        {
+          "Key": "yor_trace",
+          "Value": "df779eb3-6b25-4709-97c0-2766d494e2c7"
+        }
+      ],
       "SecondaryPrivateIpAddressCount" : 2,
       "SourceDestCheck" : true,
       "SubnetId" : { "Fn::Select" : [ "0", {"Ref" : "Subnet"} ] }

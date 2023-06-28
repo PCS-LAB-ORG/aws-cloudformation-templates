@@ -58,6 +58,9 @@ Resources:
       RoleName: !Sub "KMS-Key-Policy-Updater-${AWS::StackName}"
       Path:
         Fn::Sub: /
+      Tags:
+        - Key: yor_trace
+          Value: 6b5fd529-e07c-4f99-b0ca-a67263fe15c8
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -72,6 +75,9 @@ Resources:
         Fn::GetAtt: LambdaRole.Arn
       Runtime: python2.7
       Timeout: 60
+      Tags:
+        - Key: yor_trace
+          Value: c8be5927-37a3-4361-9d4c-147182069fda
 Outputs:
   LambdaFunctionARN:
     Description: The ARN of the lambda function
