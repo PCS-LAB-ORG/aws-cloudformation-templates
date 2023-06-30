@@ -16,6 +16,9 @@ Resources:
       Engine: MySQL
       MasterUsername: myName
       MasterUserPassword: myPassword
+      Tags:
+        - Key: user
+          Value: pchandaliya
     DeletionPolicy: Snapshot
 Outputs:
   JDBCConnectionString:
