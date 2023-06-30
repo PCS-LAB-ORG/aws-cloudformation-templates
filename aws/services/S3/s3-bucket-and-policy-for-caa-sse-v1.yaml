@@ -20,6 +20,9 @@ Resources:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
+      Tags:
+        - Key: user
+          Value: pchandaliya
   S3BUCKETPOL:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
