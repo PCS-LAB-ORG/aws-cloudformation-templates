@@ -12,12 +12,24 @@
     "EIP1": {
       "Type": "AWS::EC2::EIP",
       "Properties": {
+        "Tags": [
+          {
+            "Key": "git_org",
+            "Value": "PCS-LAB-ORG"
+          }
+        ],
         "Domain": "VPC"
       }
     },
     "EIP2": {
       "Type": "AWS::EC2::EIP",
       "Properties": {
+        "Tags": [
+          {
+            "Key": "git_org",
+            "Value": "PCS-LAB-ORG"
+          }
+        ],
         "Domain": "VPC"
       }
     },
@@ -45,6 +57,12 @@
 {
    "Type" : "AWS::EC2::NetworkInterface",
    "Properties" : {
+      "Tags": [
+        {
+          "Key": "git_org",
+          "Value": "PCS-LAB-ORG"
+        }
+      ],
       "SecondaryPrivateIpAddressCount" : 2,
       "SourceDestCheck" : true,
       "SubnetId" : { "Fn::Select" : [ "0", {"Ref" : "Subnet"} ] }

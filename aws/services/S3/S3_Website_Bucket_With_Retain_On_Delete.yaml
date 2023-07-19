@@ -14,6 +14,9 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
     DeletionPolicy: Retain
 Outputs:
   WebsiteURL:

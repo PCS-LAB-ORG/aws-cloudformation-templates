@@ -54,6 +54,9 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
         - arn:aws:iam::aws:policy/AmazonKinesisFullAccess
       Path: /
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -77,3 +80,6 @@ Resources:
           ENV:
             Fn::Sub: ${EnvName}
           TZ: UTC
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG

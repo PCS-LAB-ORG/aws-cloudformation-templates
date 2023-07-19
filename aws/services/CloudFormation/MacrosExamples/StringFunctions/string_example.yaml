@@ -71,3 +71,5 @@ Resources:
                  InputString: !Ref InputString
                  Operation: MaxLength
                  Length: 4
+        - Key: git_org
+          Value: PCS-LAB-ORG
