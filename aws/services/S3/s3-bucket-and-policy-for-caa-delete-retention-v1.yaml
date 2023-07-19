@@ -16,6 +16,9 @@ Resources:
     Type: 'AWS::S3::Bucket'
     Properties:
       BucketName: !Ref BucketName
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
     DeletionPolicy: Retain
   S3BUCKETPOL:
     Type: 'AWS::S3::BucketPolicy'

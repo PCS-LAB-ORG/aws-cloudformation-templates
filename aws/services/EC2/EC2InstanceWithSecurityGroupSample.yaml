@@ -45,6 +45,9 @@ Resources:
       SecurityGroups: [!Ref 'InstanceSecurityGroup']
       KeyName: !Ref 'KeyName'
       ImageId: !Ref 'LatestAmiId'
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -54,6 +57,9 @@ Resources:
         FromPort: 22
         ToPort: 22
         CidrIp: !Ref 'SSHLocation'
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
 Outputs:
   InstanceId:
     Description: InstanceId of the newly created EC2 instance

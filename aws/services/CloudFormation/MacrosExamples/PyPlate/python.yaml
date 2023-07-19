@@ -19,6 +19,9 @@ Resources:
               - Effect: Allow
                 Action: ['logs:*']
                 Resource: 'arn:aws:logs:*:*:*'
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
   TransformFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -69,6 +72,9 @@ Resources:
       Handler: index.handler
       Runtime: python3.6
       Role: !GetAtt TransformExecutionRole.Arn
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
   TransformFunctionPermissions:
     Type: AWS::Lambda::Permission
     Properties:

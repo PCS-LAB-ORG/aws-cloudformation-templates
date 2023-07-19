@@ -48,6 +48,9 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: FindInMap-Inside-Sub-Example
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
   EC2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
@@ -90,6 +93,9 @@ Resources:
               LocalFindInMapVarWebserver:   !FindInMap [ EnvMap,                !Ref EnvNameParam,         WebServer ],
               LocalIfVar:                   !If        [ ExampleConditionIfDev, 'This box is development', 'This box is testing' ]
               }
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
 Outputs:
   CLIcommand:
     Description: CLI command to view the user data on Mac/Linux.
