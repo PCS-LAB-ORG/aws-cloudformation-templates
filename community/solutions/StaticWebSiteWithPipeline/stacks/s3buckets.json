@@ -35,7 +35,10 @@
           "BucketName" : { "Fn::Join" : [ "", [ "", { "Ref" : "HostName" }, ".", { "Ref" : "HostedZoneName" } ] ] },
           "AccessControl" : "PublicRead",
           "LoggingConfiguration" : { "DestinationBucketName" : { "Fn::Join" : [ "", [ "", "logs.", { "Ref" : "HostName" }, ".", { "Ref" : "HostedZoneName" } ] ] }, "LogFilePrefix" : "bucket/"},
-          "WebsiteConfiguration" : {"IndexDocument" : "index.html", "ErrorDocument" : "error.html"}
+          "WebsiteConfiguration" : {"IndexDocument" : "index.html", "ErrorDocument" : "error.html"},
+          "PublicAccessBlockConfiguration": {
+            "BlockPublicAcls": true
+          }
         }
       }
 
