@@ -49,6 +49,8 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: True
   WebsiteCDN:
     Type: AWS::CloudFront::Distribution
     Properties:
