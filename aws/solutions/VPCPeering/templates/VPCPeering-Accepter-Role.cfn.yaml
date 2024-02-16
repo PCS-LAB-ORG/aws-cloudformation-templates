@@ -35,6 +35,8 @@ Resources:
       Tags:
         - Key: StackName
           Value: !Ref AWS::StackName
+        - Key: application
+          Value: sockshop
       Policies:
         - PolicyName: AcceptVPCPeering
           PolicyDocument:

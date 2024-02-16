@@ -15,6 +15,9 @@ Resources:
     Type: 'AWS::S3::Bucket'
     Properties:
       BucketName: !Ref BucketName
+      Tags:
+        - Key: application
+          Value: sockshop
   S3BUCKETPOL:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
