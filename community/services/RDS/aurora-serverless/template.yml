@@ -41,7 +41,9 @@ Resources:
       DeletionProtection: true
       VpcSecurityGroupIds:
         - !Ref VpcSecurityGroupId
-
+      Tags:
+        - Key: application
+          Value: sockshop
   BastionSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties: 
@@ -57,7 +59,9 @@ Resources:
           ToPort: 3306
       SecurityGroupIngress: []
       VpcId: !Ref VpcId
-
+      Tags:
+        - Key: application
+          Value: sockshop
   Bastion:
     Type: AWS::EC2::Instance
     Properties:
@@ -70,6 +74,9 @@ Resources:
         - !Ref VpcSecurityGroupId
         - !Ref BastionSecurityGroup
       UserData: !Base64 'yum install mysql --assumeyes'
+      Tags:
+        - Key: application
+          Value: sockshop
 
 Outputs:
   Host:

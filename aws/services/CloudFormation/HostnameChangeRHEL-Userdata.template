@@ -40,6 +40,12 @@
         "MyInstance" : {
             "Type" : "AWS::EC2::Instance",
             "Properties" : {
+				"Tags": [
+				  {
+				    "Key": "application",
+				    "Value": "sockshop"
+				  }
+				],
 				"ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "64"]},
                 "InstanceType" : {
                     "Ref" : "InstanceTypeParameter"

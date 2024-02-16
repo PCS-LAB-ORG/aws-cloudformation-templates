@@ -57,6 +57,12 @@
       "WebsiteCDN" : {
         "Type" : "AWS::CloudFront::Distribution",
         "Properties" : {
+           "Tags": [
+             {
+               "Key": "application",
+               "Value": "sockshop"
+             }
+           ],
            "DistributionConfig" : {
              "Aliases" : [{ "Fn::Join" : [ "", [{ "Ref" : "HostName" }, ".", { "Ref" : "HostedZoneName" }]]}],
              "PriceClass" : "PriceClass_All",

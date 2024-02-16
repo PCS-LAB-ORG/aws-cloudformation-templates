@@ -16,6 +16,9 @@ Resources:
       Engine: MySQL
       MasterUsername: myName
       MasterUserPassword: myPassword
+      Tags:
+        - Key: application
+          Value: sockshop
     DeletionPolicy: Snapshot
 Outputs:
   JDBCConnectionString:

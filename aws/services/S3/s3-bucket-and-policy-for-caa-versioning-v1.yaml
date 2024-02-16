@@ -18,6 +18,9 @@ Resources:
       BucketName: !Ref BucketName
       VersioningConfiguration:
         Status: Enabled
+      Tags:
+        - Key: application
+          Value: sockshop
   S3BUCKETPOL:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
