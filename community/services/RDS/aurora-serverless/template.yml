@@ -41,7 +41,9 @@ Resources:
       DeletionProtection: true
       VpcSecurityGroupIds:
         - !Ref VpcSecurityGroupId
-
+      Tags:
+        - Key: yor_trace
+          Value: 3b31eb27-46c2-44ce-b51a-1587a7085dae
   BastionSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties: 
@@ -57,7 +59,9 @@ Resources:
           ToPort: 3306
       SecurityGroupIngress: []
       VpcId: !Ref VpcId
-
+      Tags:
+        - Key: yor_trace
+          Value: d1d98c9a-947d-46ed-8c3a-95a2e29c3d41
   Bastion:
     Type: AWS::EC2::Instance
     Properties:
@@ -70,6 +74,9 @@ Resources:
         - !Ref VpcSecurityGroupId
         - !Ref BastionSecurityGroup
       UserData: !Base64 'yum install mysql --assumeyes'
+      Tags:
+        - Key: yor_trace
+          Value: ca41e24d-2f74-41eb-9ce5-3d806eec3797
 
 Outputs:
   Host:

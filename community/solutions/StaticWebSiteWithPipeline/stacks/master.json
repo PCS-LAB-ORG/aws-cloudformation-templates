@@ -49,6 +49,12 @@
         "Functions" : {
             "Type" : "AWS::CloudFormation::Stack",
             "Properties" : {
+               "Tags": [
+                 {
+                   "Key": "yor_trace",
+                   "Value": "a23ddbc6-3681-4432-a0a0-05f6b4f5aa99"
+                 }
+               ],
                "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/functions.json" ] ] },
 	           "Parameters" : {"BucketName" : {"Ref":"BucketName"}},
                "TimeoutInMinutes" : 60
@@ -67,6 +73,12 @@
         "Certificate" : {
 	       "Type" : "AWS::CloudFormation::Stack",
 	       "Properties" : {
+                "Tags": [
+                  {
+                    "Key": "yor_trace",
+                    "Value": "eb54d20f-8277-4abb-a342-d9f05733578e"
+                  }
+                ],
                 "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/certificate.json" ] ] },
                 "Parameters" : {
                     "HostedZone" : {"Ref":"HostedZone"},
@@ -83,6 +95,12 @@
         "Buckets" : {
             "Type" : "AWS::CloudFormation::Stack",
             "Properties" : {
+                 "Tags": [
+                   {
+                     "Key": "yor_trace",
+                     "Value": "212d6535-ab14-4e3d-95ad-7ed3f1561682"
+                   }
+                 ],
                  "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/s3buckets.json" ] ] },
                  "Parameters" : {
                      "HostedZoneName" : { "Fn::GetAtt" : [ "HostedZoneNameFunction", "HostedZoneName" ] },
@@ -96,6 +114,12 @@
             "Type" : "AWS::CloudFormation::Stack",
             "Condition": "BuildPipeline",
             "Properties" : {
+                 "Tags": [
+                   {
+                     "Key": "yor_trace",
+                     "Value": "fe87e724-b369-43e6-86e1-c7a299cdeb77"
+                   }
+                 ],
                  "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/pipeline.json" ] ] },
                  "Parameters" : {
                      "S3BucketForWebSite" : { "Fn::GetAtt" : [ "Buckets", "Outputs.SiteBucketName" ] }
@@ -107,6 +131,12 @@
         "Distribution" : {
             "Type" : "AWS::CloudFormation::Stack",
             "Properties" : {
+                "Tags": [
+                  {
+                    "Key": "yor_trace",
+                    "Value": "af4a5c30-03f4-4efb-9d2c-f83fc723fcb1"
+                  }
+                ],
                 "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/distribution.json" ] ] },
                 "Parameters" : {
                     "HostedZoneName" : { "Fn::GetAtt" : [ "HostedZoneNameFunction", "HostedZoneName" ] },

@@ -44,6 +44,9 @@ Resources:
             - kms:GenerateDataKey*
             - kms:DescribeKey
           Resource: '*'
+      Tags:
+        - Key: yor_trace
+          Value: f138425e-96c6-4f70-adf8-9850fa11df04
 
   # Create a KMS Key alias.
   KmsKeyAlias:
@@ -71,6 +74,9 @@ Resources:
         RestrictPublicBuckets: true
       VersioningConfiguration: # Versioning must be enabled for replication.
         Status: Enabled
+      Tags:
+        - Key: yor_trace
+          Value: d4c8479e-b4c0-45c5-bc6f-da0b19815941
 
   # S3 Bucket Policy to allow replication from source account.
   S3BucketDestinationPolicy:
