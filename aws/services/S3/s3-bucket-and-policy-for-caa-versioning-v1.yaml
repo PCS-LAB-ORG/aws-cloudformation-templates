@@ -18,6 +18,9 @@ Resources:
       BucketName: !Ref BucketName
       VersioningConfiguration:
         Status: Enabled
+      Tags:
+        - Key: yor_trace
+          Value: 02dc9894-0525-41db-8345-cbac7576378b
   S3BUCKETPOL:
     Type: 'AWS::S3::BucketPolicy'
     Properties:

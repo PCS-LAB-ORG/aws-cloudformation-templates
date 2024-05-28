@@ -40,6 +40,12 @@
         "MyInstance" : {
             "Type" : "AWS::EC2::Instance",
             "Properties" : {
+				"Tags": [
+				  {
+				    "Key": "yor_trace",
+				    "Value": "95a598f5-489e-440b-bf2a-45b14e682327"
+				  }
+				],
 				"ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "64"]},
                 "InstanceType" : {
                     "Ref" : "InstanceTypeParameter"
