@@ -91,6 +91,12 @@
         "MyInstance" : {
             "Type" : "AWS::EC2::Instance",
             "Metadata" : {
+                "Tags": [
+                  {
+                    "Key": "user",
+                    "Value": "pchandaliya"
+                  }
+                ],
                 "AWS::CloudFormation::Init" : {
                     "configSets" : {
                         "mkscriptrunclean" : [

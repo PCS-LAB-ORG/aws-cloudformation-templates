@@ -34,6 +34,9 @@ Resources:
             AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
           Action: kms:*
           Resource: '*'
+      Tags:
+        - Key: user
+          Value: pchandaliya
 
   # Create a KMS Key alias.
   KmsKeyAlias:
@@ -81,6 +84,9 @@ Resources:
             SourceSelectionCriteria:
               SseKmsEncryptedObjects: # Specifies whether S3 replicates objects created with server-side encryption using an AWS KMS key.
                 Status: Enabled
+      Tags:
+        - Key: user
+          Value: pchandaliya
   
   # Create the IAM Role used by the S3 bucket replication.
   ReplicationRole:
@@ -136,3 +142,6 @@ Resources:
                 Condition:
                   StringEquals:
                     kms:RequestAlias: !Sub alias/${AWS::StackName}-${AccountIdDestination}-kms-key
+      Tags:
+        - Key: user
+          Value: pchandaliya

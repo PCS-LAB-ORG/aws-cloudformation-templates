@@ -18,6 +18,12 @@
     "SNSTopic":{
   "Type" : "AWS::SNS::Topic",
   "Properties" : {
+    "Tags": [
+      {
+        "Key": "user",
+        "Value": "pchandaliya"
+      }
+    ],
   }
 
   },
