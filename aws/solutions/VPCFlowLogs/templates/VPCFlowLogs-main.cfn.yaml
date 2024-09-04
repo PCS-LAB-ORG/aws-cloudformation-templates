@@ -177,6 +177,9 @@ Resources:
         VPCFlowLogsMaxAggregationInterval: !Ref VPCFlowLogsMaxAggregationInterval
         VPCFlowLogsTrafficType: !Ref VPCFlowLogsTrafficType
         VPCID: !Ref VPCID
+      Tags:
+        - Key: user
+          Value: pchandaliya
   VPCFlowLogsS3Stack:
     Condition: VPCFlowLogsToS3Condition
     Type: AWS::CloudFormation::Stack
@@ -191,3 +194,6 @@ Resources:
         VPCFlowLogsMaxAggregationInterval: !Ref VPCFlowLogsMaxAggregationInterval
         VPCFlowLogsTrafficType: !Ref VPCFlowLogsTrafficType
         VPCID: !Ref VPCID
+      Tags:
+        - Key: user
+          Value: pchandaliya

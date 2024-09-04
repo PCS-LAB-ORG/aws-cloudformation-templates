@@ -15,6 +15,12 @@
             "S3BucketForArtifacts" : {
                 "Type" : "AWS::S3::Bucket",
                 "Properties" : {
+                  "Tags": [
+                    {
+                      "Key": "user",
+                      "Value": "pchandaliya"
+                    }
+                  ],
                   "AccessControl" : "Private"
                 }
             },
@@ -22,6 +28,12 @@
             "CodeRepository" : {
                 "Type" : "AWS::CodeCommit::Repository",
                 "Properties" : {
+                    "Tags": [
+                      {
+                        "Key": "user",
+                        "Value": "pchandaliya"
+                      }
+                    ],
                     "RepositoryName" : { "Fn::Sub": [ "${Stack}-Repo", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                     "RepositoryDescription" : "Repository for S3 Static Web Site"
                 }
@@ -30,6 +42,12 @@
             "BuildRole" : {
                 "Type": "AWS::IAM::Role",
                 "Properties": {
+                    "Tags": [
+                      {
+                        "Key": "user",
+                        "Value": "pchandaliya"
+                      }
+                    ],
                     "RoleName": { "Fn::Sub": [ "${Stack}-CodeBuildExecRole", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                     "AssumeRolePolicyDocument": {
                         "Version": "2012-10-17",
@@ -86,6 +104,12 @@
             "CodeBuild" : {
                 "Type" : "AWS::CodeBuild::Project",
                 "Properties" : {
+                    "Tags": [
+                      {
+                        "Key": "user",
+                        "Value": "pchandaliya"
+                      }
+                    ],
                     "Artifacts" : {
                             "Type": "CODEPIPELINE",
                             "Name": { "Fn::Sub": [ "${Stack}-Build", { "Stack": {"Ref" : "AWS::StackName" }} ]},
@@ -114,6 +138,12 @@
             "PipelineRole": {
                "Type": "AWS::IAM::Role",
                "Properties": {
+                    "Tags": [
+                      {
+                        "Key": "user",
+                        "Value": "pchandaliya"
+                      }
+                    ],
                     "RoleName": { "Fn::Sub": [ "${Stack}-CodePipeLineExecRole", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                     "AssumeRolePolicyDocument": {
                         "Version": "2012-10-17",
@@ -170,6 +200,12 @@
             "CodePipeline" : {
                 "Type" : "AWS::CodePipeline::Pipeline",
                 "Properties" : {
+                  "Tags": [
+                    {
+                      "Key": "user",
+                      "Value": "pchandaliya"
+                    }
+                  ],
                   "ArtifactStore" : {
                     "Location" : {"Ref": "S3BucketForArtifacts"},
                     "Type" : "S3"
@@ -213,6 +249,12 @@
     
                 "Type": "AWS::IAM::Role",
                 "Properties": {
+                     "Tags": [
+                       {
+                         "Key": "user",
+                         "Value": "pchandaliya"
+                       }
+                     ],
                      "RoleName": { "Fn::Sub": [ "${Stack}-CloudWatchEventRole", { "Stack": {"Ref" : "AWS::StackName" }} ]},
                      "AssumeRolePolicyDocument": {
                          "Version": "2012-10-17",
