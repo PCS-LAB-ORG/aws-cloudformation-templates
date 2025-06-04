@@ -16,6 +16,9 @@ Resources:
       Engine: MySQL
       MasterUsername: myName
       MasterUserPassword: myPassword
+      Tags:
+        - Key: yor_trace
+          Value: be5821f4-284b-4d76-9cc0-8845f35f502d
     DeletionPolicy: Snapshot
 Outputs:
   JDBCConnectionString:

@@ -57,6 +57,12 @@
       "WebsiteCDN" : {
         "Type" : "AWS::CloudFront::Distribution",
         "Properties" : {
+           "Tags": [
+             {
+               "Key": "yor_trace",
+               "Value": "91f11e52-4ff3-447f-a5b3-94cc905ff301"
+             }
+           ],
            "DistributionConfig" : {
              "Aliases" : [{ "Fn::Join" : [ "", [{ "Ref" : "HostName" }, ".", { "Ref" : "HostedZoneName" }]]}],
              "PriceClass" : "PriceClass_All",

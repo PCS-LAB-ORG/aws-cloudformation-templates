@@ -19,6 +19,9 @@ Resources:
               - Effect: Allow
                 Action: ['logs:*']
                 Resource: 'arn:aws:logs:*:*:*'
+      Tags:
+        - Key: yor_trace
+          Value: 654c3450-07ff-40c3-bd66-516850f9b75e
   TransformFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -69,6 +72,9 @@ Resources:
       Handler: index.handler
       Runtime: python3.7
       Role: !GetAtt TransformExecutionRole.Arn
+      Tags:
+        - Key: yor_trace
+          Value: 6a8b415f-3ea3-43c3-8e29-0870d08039bb
   TransformFunctionPermissions:
     Type: AWS::Lambda::Permission
     Properties:
