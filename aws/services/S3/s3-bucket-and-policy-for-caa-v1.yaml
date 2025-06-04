@@ -15,6 +15,9 @@ Resources:
     Type: 'AWS::S3::Bucket'
     Properties:
       BucketName: !Ref BucketName
+      Tags:
+        - Key: yor_trace
+          Value: e89b899d-61d5-4843-bbee-650013e510ad
   S3BUCKETPOL:
     Type: 'AWS::S3::BucketPolicy'
     Properties:

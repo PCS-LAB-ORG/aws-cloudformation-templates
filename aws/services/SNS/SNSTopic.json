@@ -18,6 +18,12 @@
     "SNSTopic":{
   "Type" : "AWS::SNS::Topic",
   "Properties" : {
+    "Tags": [
+      {
+        "Key": "yor_trace",
+        "Value": "d75d62bf-d5ee-4a19-8b98-58c5ec026c3f"
+      }
+    ],
   }
 
   },

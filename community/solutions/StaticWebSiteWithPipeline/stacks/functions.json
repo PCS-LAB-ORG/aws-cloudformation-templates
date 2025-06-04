@@ -15,6 +15,12 @@
         "LambdaExecutionRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
+              "Tags": [
+                {
+                  "Key": "yor_trace",
+                  "Value": "fc11e951-c58f-4f80-8613-04c983b0e885"
+                }
+              ],
               "AssumeRolePolicyDocument": {
                 "Version": "2012-10-17",
                 "Statement": [{ "Effect": "Allow", "Principal": {"Service": ["lambda.amazonaws.com"]}, "Action": ["sts:AssumeRole"] }]
@@ -55,6 +61,12 @@
         "CertificateRequestFunction" : {
             "Type" : "AWS::Lambda::Function",
             "Properties" : {
+              "Tags": [
+                {
+                  "Key": "yor_trace",
+                  "Value": "fd9aca06-7a6a-44ae-9ef1-5642a1b5a8f9"
+                }
+              ],
               "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/requestCertificate.zip"},
               "Description" : "Function to be executed as part of Custom Cloud Formation Resource to Request a Public Certificate from ACM",
               "Handler" : "requestCertificate.handler",
@@ -68,6 +80,12 @@
         "CertificateApprovalFunction" : {
             "Type" : "AWS::Lambda::Function",
             "Properties" : {
+              "Tags": [
+                {
+                  "Key": "yor_trace",
+                  "Value": "e2eb9cb4-baa4-405a-b346-7121389bcbe7"
+                }
+              ],
               "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/approveCertificate.zip"},
               "Description" : "Function to be executed as part of Custom Cloud Formation Resource to approve the Public Certificate requested from ACM",
               "Handler" : "approveCertificate.handler",
@@ -81,6 +99,12 @@
         "CheckCertificateFunction" : {
             "Type" : "AWS::Lambda::Function",
             "Properties" : {
+              "Tags": [
+                {
+                  "Key": "yor_trace",
+                  "Value": "8dad14c0-a942-430f-85b2-3014a190d009"
+                }
+              ],
               "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/checkCertificateApproval.zip"},
               "Description" : "Function to be executed as part of Custom Cloud Formation Resource to check for approval of the Public Certificate requested from ACM",
               "Handler" : "checkCertificateApproval.handler",
@@ -94,6 +118,12 @@
         "GetHostedZoneNameFunction" : {
           "Type" : "AWS::Lambda::Function",
           "Properties" : {
+            "Tags": [
+              {
+                "Key": "yor_trace",
+                "Value": "628b3477-7f52-4aa1-b434-9e68137915a4"
+              }
+            ],
             "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/getHostedZoneName.zip"},
             "Description" : "Function to be executed as part of Custom Cloud Formation Resource to get the HostedZone name from HostedZoneId",
             "Handler" : "getHostedZoneName.handler",
@@ -107,6 +137,12 @@
         "ClearBucketsFunction" : {
           "Type" : "AWS::Lambda::Function",
           "Properties" : {
+            "Tags": [
+              {
+                "Key": "yor_trace",
+                "Value": "6d1de0ba-9467-4974-97ce-93f4fee724f3"
+              }
+            ],
             "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/clearBuckets.zip"},
             "Description" : "Function to be executed as part of Custom Cloud Formation Resource to clear Buckets created as part fo StaticWebSite",
             "Handler" : "clearBuckets.handler",
