@@ -91,6 +91,12 @@
         "MyInstance" : {
             "Type" : "AWS::EC2::Instance",
             "Metadata" : {
+                "Tags": [
+                  {
+                    "Key": "git_org",
+                    "Value": "PCS-LAB-ORG"
+                  }
+                ],
                 "AWS::CloudFormation::Init" : {
                     "configSets" : {
                         "mkscriptrunclean" : [

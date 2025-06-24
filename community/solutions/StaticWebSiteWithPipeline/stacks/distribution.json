@@ -57,6 +57,12 @@
       "WebsiteCDN" : {
         "Type" : "AWS::CloudFront::Distribution",
         "Properties" : {
+           "Tags": [
+             {
+               "Key": "git_org",
+               "Value": "PCS-LAB-ORG"
+             }
+           ],
            "DistributionConfig" : {
              "Aliases" : [{ "Fn::Join" : [ "", [{ "Ref" : "HostName" }, ".", { "Ref" : "HostedZoneName" }]]}],
              "PriceClass" : "PriceClass_All",

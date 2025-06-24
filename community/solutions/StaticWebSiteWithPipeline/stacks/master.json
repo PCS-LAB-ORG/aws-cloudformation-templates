@@ -49,6 +49,12 @@
         "Functions" : {
             "Type" : "AWS::CloudFormation::Stack",
             "Properties" : {
+               "Tags": [
+                 {
+                   "Key": "git_org",
+                   "Value": "PCS-LAB-ORG"
+                 }
+               ],
                "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/functions.json" ] ] },
 	           "Parameters" : {"BucketName" : {"Ref":"BucketName"}},
                "TimeoutInMinutes" : 60
@@ -67,6 +73,12 @@
         "Certificate" : {
 	       "Type" : "AWS::CloudFormation::Stack",
 	       "Properties" : {
+                "Tags": [
+                  {
+                    "Key": "git_org",
+                    "Value": "PCS-LAB-ORG"
+                  }
+                ],
                 "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/certificate.json" ] ] },
                 "Parameters" : {
                     "HostedZone" : {"Ref":"HostedZone"},
@@ -83,6 +95,12 @@
         "Buckets" : {
             "Type" : "AWS::CloudFormation::Stack",
             "Properties" : {
+                 "Tags": [
+                   {
+                     "Key": "git_org",
+                     "Value": "PCS-LAB-ORG"
+                   }
+                 ],
                  "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/s3buckets.json" ] ] },
                  "Parameters" : {
                      "HostedZoneName" : { "Fn::GetAtt" : [ "HostedZoneNameFunction", "HostedZoneName" ] },
@@ -96,6 +114,12 @@
             "Type" : "AWS::CloudFormation::Stack",
             "Condition": "BuildPipeline",
             "Properties" : {
+                 "Tags": [
+                   {
+                     "Key": "git_org",
+                     "Value": "PCS-LAB-ORG"
+                   }
+                 ],
                  "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/pipeline.json" ] ] },
                  "Parameters" : {
                      "S3BucketForWebSite" : { "Fn::GetAtt" : [ "Buckets", "Outputs.SiteBucketName" ] }
@@ -107,6 +131,12 @@
         "Distribution" : {
             "Type" : "AWS::CloudFormation::Stack",
             "Properties" : {
+                "Tags": [
+                  {
+                    "Key": "git_org",
+                    "Value": "PCS-LAB-ORG"
+                  }
+                ],
                 "TemplateURL" : { "Fn::Join" : [ "", [ "https://", "s3-", {"Ref" : "AWS::Region"}, ".amazonaws.com/", {"Ref":"BucketName"}, "/stacks/distribution.json" ] ] },
                 "Parameters" : {
                     "HostedZoneName" : { "Fn::GetAtt" : [ "HostedZoneNameFunction", "HostedZoneName" ] },
