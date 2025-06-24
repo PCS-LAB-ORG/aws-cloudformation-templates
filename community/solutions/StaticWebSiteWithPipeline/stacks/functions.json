@@ -15,6 +15,12 @@
         "LambdaExecutionRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
+              "Tags": [
+                {
+                  "Key": "git_org",
+                  "Value": "PCS-LAB-ORG"
+                }
+              ],
               "AssumeRolePolicyDocument": {
                 "Version": "2012-10-17",
                 "Statement": [{ "Effect": "Allow", "Principal": {"Service": ["lambda.amazonaws.com"]}, "Action": ["sts:AssumeRole"] }]
@@ -55,6 +61,12 @@
         "CertificateRequestFunction" : {
             "Type" : "AWS::Lambda::Function",
             "Properties" : {
+              "Tags": [
+                {
+                  "Key": "git_org",
+                  "Value": "PCS-LAB-ORG"
+                }
+              ],
               "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/requestCertificate.zip"},
               "Description" : "Function to be executed as part of Custom Cloud Formation Resource to Request a Public Certificate from ACM",
               "Handler" : "requestCertificate.handler",
@@ -68,6 +80,12 @@
         "CertificateApprovalFunction" : {
             "Type" : "AWS::Lambda::Function",
             "Properties" : {
+              "Tags": [
+                {
+                  "Key": "git_org",
+                  "Value": "PCS-LAB-ORG"
+                }
+              ],
               "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/approveCertificate.zip"},
               "Description" : "Function to be executed as part of Custom Cloud Formation Resource to approve the Public Certificate requested from ACM",
               "Handler" : "approveCertificate.handler",
@@ -81,6 +99,12 @@
         "CheckCertificateFunction" : {
             "Type" : "AWS::Lambda::Function",
             "Properties" : {
+              "Tags": [
+                {
+                  "Key": "git_org",
+                  "Value": "PCS-LAB-ORG"
+                }
+              ],
               "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/checkCertificateApproval.zip"},
               "Description" : "Function to be executed as part of Custom Cloud Formation Resource to check for approval of the Public Certificate requested from ACM",
               "Handler" : "checkCertificateApproval.handler",
@@ -94,6 +118,12 @@
         "GetHostedZoneNameFunction" : {
           "Type" : "AWS::Lambda::Function",
           "Properties" : {
+            "Tags": [
+              {
+                "Key": "git_org",
+                "Value": "PCS-LAB-ORG"
+              }
+            ],
             "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/getHostedZoneName.zip"},
             "Description" : "Function to be executed as part of Custom Cloud Formation Resource to get the HostedZone name from HostedZoneId",
             "Handler" : "getHostedZoneName.handler",
@@ -107,6 +137,12 @@
         "ClearBucketsFunction" : {
           "Type" : "AWS::Lambda::Function",
           "Properties" : {
+            "Tags": [
+              {
+                "Key": "git_org",
+                "Value": "PCS-LAB-ORG"
+              }
+            ],
             "Code" : {"S3Bucket" : {"Ref": "BucketName"}, "S3Key" : "lambdas/clearBuckets.zip"},
             "Description" : "Function to be executed as part of Custom Cloud Formation Resource to clear Buckets created as part fo StaticWebSite",
             "Handler" : "clearBuckets.handler",

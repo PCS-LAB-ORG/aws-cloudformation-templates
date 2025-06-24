@@ -16,6 +16,9 @@ Resources:
       Engine: MySQL
       MasterUsername: myName
       MasterUserPassword: myPassword
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
     DeletionPolicy: Snapshot
 Outputs:
   JDBCConnectionString:

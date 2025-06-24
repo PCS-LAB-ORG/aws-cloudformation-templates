@@ -58,6 +58,9 @@ Resources:
       RoleName: !Sub "KMS-Key-Policy-Updater-${AWS::StackName}"
       Path:
         Fn::Sub: /
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -72,6 +75,9 @@ Resources:
         Fn::GetAtt: LambdaRole.Arn
       Runtime: python2.7
       Timeout: 60
+      Tags:
+        - Key: git_org
+          Value: PCS-LAB-ORG
 Outputs:
   LambdaFunctionARN:
     Description: The ARN of the lambda function

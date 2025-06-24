@@ -40,6 +40,12 @@
         "MyInstance" : {
             "Type" : "AWS::EC2::Instance",
             "Properties" : {
+				"Tags": [
+				  {
+				    "Key": "git_org",
+				    "Value": "PCS-LAB-ORG"
+				  }
+				],
 				"ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "64"]},
                 "InstanceType" : {
                     "Ref" : "InstanceTypeParameter"
